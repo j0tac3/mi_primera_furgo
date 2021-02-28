@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Etiqueta;
+use App\Models\Seccion;
 
-class EtiquetaController extends Controller
+class SeccionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class EtiquetaController extends Controller
      */
     public function index()
     {
-        $etiquetas = Etiqueta::all();
-        return $etiquetas;
+        $seccion = Seccion::all();
+        return $seccion;
     }
 
     /**
@@ -27,11 +27,12 @@ class EtiquetaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'desc' => 'required'
+            'orden' => 'required',
+            'text' => 'required',
+            'post_id' => 'required'
         ]);
-        
-        $etiqueta = Etiqueta::create($request->all());
-        return $etiqueta;
+
+        return Seccion::create($request->all());
     }
 
     /**
@@ -42,8 +43,8 @@ class EtiquetaController extends Controller
      */
     public function show($id)
     {
-        $etiqueta = Etiqueta::findOrFail($id);
-        return $etiqueta;
+        $seccion = Seccion::findOrFail($id);
+        return $seccion;
     }
 
     /**
@@ -56,12 +57,13 @@ class EtiquetaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'desc' => 'required'
+            'orden' => 'required',
+            'text' => 'required',
+            'post_id' => 'required'
         ]);
         
-        $etiqueta = Etiqueta::findOrFail($id);
-        $etiqueta->update($request->all());
-        return $etiqueta;
+        $seccion = Seccion::findOrFail($id);
+        return $seccion->update($request->all());
     }
 
     /**
@@ -72,8 +74,7 @@ class EtiquetaController extends Controller
      */
     public function destroy($id)
     {
-        $etiqueta = Etiqueta::findOrFail($id);
-        $etiqueta->delete();
-        return $etiqueta;
+        $seccion = Seccion::findOrFail($id);
+        return $seccion->delete();
     }
 }

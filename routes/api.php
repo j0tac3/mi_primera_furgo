@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Etiqueta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,28 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResources([
+    'etiqueta' => App\Http\Controllers\EtiquetaController::class
+]);
+Route::apiResources([
+    'post' => App\Http\Controllers\PostController::class
+]);
+Route::apiResources([
+    'user' => App\Http\Controllers\UserController::class
+]);
+//Routes to Etiquetas
+/* Route::get('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'index'])->name('etiqueta.index');
+Route::post('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'store'])->name('etiqueta.store');
+Route::put('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'update'])->name('etiqueta.update');
+Route::delete('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'destroy'])->name('etiqueta.delete'); */
+//Routes to Etiquetas
+/* Route::get('post', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
+Route::post('post', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
+Route::put('post', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
+Route::delete('post', [App\Http\Controllers\PostController::class, 'destroy'])->name('post.delete'); */
+//Routes to Etiquetas
+/* Route::get('post', [App\Http\Controllers\PostController::class, 'index'])->name('post.index');
+Route::post('post', [App\Http\Controllers\PostController::class, 'store'])->name('post.store');
+Route::put('post', [App\Http\Controllers\PostController::class, 'update'])->name('post.update');
+Route::delete('post', [App\Http\Controllers\PostController::class, 'destroy'])->name('post.delete'); */

@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Etiqueta;
+use App\Models\Imagen;
 
-class EtiquetaController extends Controller
+class ImagenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class EtiquetaController extends Controller
      */
     public function index()
     {
-        $etiquetas = Etiqueta::all();
-        return $etiquetas;
+        $imagen = Imagen::all();
+        return $imagen;
     }
 
     /**
@@ -27,11 +27,11 @@ class EtiquetaController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'desc' => 'required'
+            'desc' => 'required',
+            'seccion_id' => 'required'
         ]);
-        
-        $etiqueta = Etiqueta::create($request->all());
-        return $etiqueta;
+
+        return Imagen::create($request->all());
     }
 
     /**
@@ -42,8 +42,8 @@ class EtiquetaController extends Controller
      */
     public function show($id)
     {
-        $etiqueta = Etiqueta::findOrFail($id);
-        return $etiqueta;
+        $imagen = Imagen::findOrFail($id);
+        return $imagen;
     }
 
     /**
@@ -56,12 +56,12 @@ class EtiquetaController extends Controller
     public function update(Request $request, $id)
     {
         $request->validate([
-            'desc' => 'required'
+            'desc' => 'required',
+            'seccion_id' => 'required'
         ]);
         
-        $etiqueta = Etiqueta::findOrFail($id);
-        $etiqueta->update($request->all());
-        return $etiqueta;
+        $imagen = Imagen::findOrFail($id);
+        return $imagen->update($request->all());
     }
 
     /**
@@ -72,8 +72,7 @@ class EtiquetaController extends Controller
      */
     public function destroy($id)
     {
-        $etiqueta = Etiqueta::findOrFail($id);
-        $etiqueta->delete();
-        return $etiqueta;
+        $imagen = Imagen::findOrFail($id);        
+        return $imagen->delete();
     }
 }

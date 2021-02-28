@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Etiqueta extends Model
 {
     use HasFactory;
+    protected $fillable = array('desc');
 
     public function etiquetaPost(){
         return $this->belongsTo('App\Models\EtiquetaPost');

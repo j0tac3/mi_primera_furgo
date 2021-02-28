@@ -9,6 +9,8 @@ class Seccion extends Model
 {
     use HasFactory;
 
+    protected $fillable = array('order', 'texto', 'post_id');
+
     public function post(){
         return $this->hasOne('App\Models\Post');
     }

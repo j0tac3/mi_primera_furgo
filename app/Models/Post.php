@@ -9,6 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = array('titulo', 'image_url', 'user_id');
+
     public function user(){
         return $this->hasOne('App\Models\User');
     }
