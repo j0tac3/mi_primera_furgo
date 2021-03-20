@@ -26,9 +26,9 @@ class EtiquetaController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+        /* $request->validate([
             'desc' => 'required'
-        ]);
+        ]); */
         
         $etiqueta = Etiqueta::create($request->all());
         return $etiqueta;
