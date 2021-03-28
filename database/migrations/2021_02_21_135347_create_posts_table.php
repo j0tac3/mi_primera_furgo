@@ -20,7 +20,7 @@ class CreatePostsTable extends Migration
             //$table->dateTime('fecha');
             $table->string('image_url', 50);
             
-            $table->unsignedBigInteger('user_id')->unique();
+            $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
                     ->references('id')
                     ->on('users')
