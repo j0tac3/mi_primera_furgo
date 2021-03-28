@@ -18,7 +18,7 @@ class CreatePostsTable extends Migration
 
             $table->string('titulo', 45);
             //$table->dateTime('fecha');
-            $table->string('image_url', 50);
+            $table->string('image_url', 50)->nullable();
             
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
