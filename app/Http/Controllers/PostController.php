@@ -21,7 +21,7 @@ class PostController extends Controller
         $request->validate([
             'titulo' => 'required',
             //'image_url' => 'required',
-            'user_id' => 'required'
+            //'user_id' => 'required'
         ]);
             
         return Post::create($request->all());
@@ -31,7 +31,7 @@ class PostController extends Controller
         $request->validate([
             'titulo' => 'required',
             //'image_url' => 'required',
-            'user_id' => 'required'
+            //'user_id' => 'required'
         ]);
         
         $post = Post::findOrFail($id);       
