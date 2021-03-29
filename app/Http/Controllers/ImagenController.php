@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Imagen;
+use App\Models\Imagene;
 
 class ImagenController extends Controller
 {
@@ -14,7 +14,7 @@ class ImagenController extends Controller
      */
     public function index()
     {
-        $imagen = Imagen::all();
+        $imagen = Imagene::all();
         return $imagen;
     }
 
@@ -31,7 +31,7 @@ class ImagenController extends Controller
             'seccion_id' => 'required'
         ]);
 
-        return Imagen::create($request->all());
+        return Imagene::create($request->all());
     }
 
     /**
@@ -42,7 +42,7 @@ class ImagenController extends Controller
      */
     public function show($id)
     {
-        $imagen = Imagen::findOrFail($id);
+        $imagen = Imagene::findOrFail($id);
         return $imagen;
     }
 
@@ -60,7 +60,7 @@ class ImagenController extends Controller
             'seccion_id' => 'required'
         ]);
         
-        $imagen = Imagen::findOrFail($id);
+        $imagen = Imagene::findOrFail($id);
         return $imagen->update($request->all());
     }
 
@@ -72,7 +72,7 @@ class ImagenController extends Controller
      */
     public function destroy($id)
     {
-        $imagen = Imagen::findOrFail($id);        
+        $imagen = Imagene::findOrFail($id);        
         return $imagen->delete();
     }
 }

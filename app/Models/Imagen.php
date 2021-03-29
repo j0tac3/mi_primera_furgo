@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Imagen extends Model
+class Imagene extends Model
 {
     use HasFactory;
     protected $fillable = array('desc', 'seccion_id');
