@@ -10,11 +10,11 @@ class EtiquetaPost extends Model
     use HasFactory;
     protected $fillable = array('post_id', 'etiqueta_id');
 
-    public function etiqueta(){
+    /* public function etiqueta(){
         return $this->hasOne('App\Models\Etiqueta');
     }
 
     public function post(){
         return $this->hasOne('App\Models\Post');
-    }
+    } */
 }
