@@ -10,7 +10,7 @@ use App\Models\Seccion;
 class EtiquetasPostController extends Controller
 {
     public function index() {
-        $etiquetasPost = Post::all();
+        $etiquetasPost = EtiquetasPost::all();
         return $etiquetasPost;
     }
 
