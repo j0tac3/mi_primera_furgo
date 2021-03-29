@@ -17,18 +17,18 @@ class CreateEtiquetaspostsTable extends Migration
             $table->id();
 
             $table->unsignedBigInteger('post_id');
-            /* $table->foreign('post_id')
+            $table->foreign('post_id')
                     ->references('id')
                     ->on('posts')
                     ->onDelete('cascade')
-                    ->onUpdate('cascade'); */
+                    ->onUpdate('cascade');
 
             $table->unsignedBigInteger('etiqueta_id');
-            /* $table->foreign('etiqueta_id')
+            $table->foreign('etiqueta_id')
                     ->references('id')
                     ->on('etiquetas')
                     ->onDelete('cascade')
-                    ->onUpdate('cascade'); */
+                    ->onUpdate('cascade');
                     
             $table->timestamps();
         });
