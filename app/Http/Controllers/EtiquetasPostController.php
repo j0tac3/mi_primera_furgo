@@ -7,11 +7,6 @@ use App\Models\EtiquetaPost;
 
 class EtiquetasPostController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index() {
         $etiquetasPost = EtiquetaPost::all();
         return $etiquetasPost;

@@ -16,14 +16,14 @@ class CreateEtiquetaspostsTable extends Migration
         Schema::create('etiquetasposts', function (Blueprint $table) {
             $table->id();
 
-            $table->unsignedBigInteger('post_id')->unique();
+            $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')
                     ->references('id')
                     ->on('posts')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
 
-            $table->unsignedBigInteger('etiqueta_id')->unique();
+            $table->unsignedBigInteger('etiqueta_id');
             $table->foreign('etiqueta_id')
                     ->references('id')
                     ->on('etiquetas')
