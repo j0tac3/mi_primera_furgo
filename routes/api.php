@@ -28,6 +28,9 @@ Route::apiResources([
 Route::apiResources([
     'user' => App\Http\Controllers\UserController::class
 ]);
+Route::apiResources([
+    'etiquetasPost' => App\Http\Controllers\EtiquetasPostController::class
+]);
 //Routes to Etiquetas
 /* Route::get('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'index'])->name('etiqueta.index');
 Route::post('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'store'])->name('etiqueta.store');
