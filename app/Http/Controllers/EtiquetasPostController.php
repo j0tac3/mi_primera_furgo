@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EtiquetaPost;
+use App\Models\Post;
 
 class EtiquetasPostController extends Controller
 {
     public function index() {
-        $etiquetasPost = EtiquetaPost::all();
+        $etiquetasPost = Post::all();
         return $etiquetasPost;
     }
 
