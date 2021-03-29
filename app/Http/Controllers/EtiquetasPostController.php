@@ -4,11 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EtiquetaPost;
+use App\Models\Imagen;
 
 class EtiquetasPostController extends Controller
 {
     public function index() {
-        $etiquetasPost = EtiquetaPost::all();
+        $etiquetasPost = Imagen::all();
         return $etiquetasPost;
     }
 
@@ -28,9 +29,8 @@ class EtiquetasPostController extends Controller
 
     public function update(Request $request, $id) {
         $request->validate([
-            'titulo' => 'required',
-            //'image_url' => 'required',
-            //'user_id' => 'required'
+            'post_id' => 'required',
+            'etiqueta_id' => 'required',
         ]);
         
         $etiquetasPost = EtiquetaPost::findOrFail($id);       
