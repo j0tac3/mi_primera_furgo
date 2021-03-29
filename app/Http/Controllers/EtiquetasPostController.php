@@ -4,13 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EtiquetaPost;
-use App\Models\Imagen;
+use App\Models\Post;
 use App\Models\Seccion;
 
 class EtiquetasPostController extends Controller
 {
     public function index() {
-        $etiquetasPost = Seccion::all();
+        $etiquetasPost = Post::all();
         return $etiquetasPost;
     }
 
