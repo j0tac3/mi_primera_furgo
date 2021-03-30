@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\EtiquetasPost;
-use App\Models\Post;
-use App\Models\Seccion;
 
 class EtiquetasPostController extends Controller
 {
