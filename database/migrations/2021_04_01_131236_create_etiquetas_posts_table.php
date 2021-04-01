@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateEtiquetaspostsTable extends Migration
+class CreateEtiquetasPostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,8 @@ class CreateEtiquetaspostsTable extends Migration
      */
     public function up()
     {
-        Schema::create('etiquetasposts', function (Blueprint $table) {
+        Schema::create('etiquetas_posts', function (Blueprint $table) {
             $table->id();
-
             $table->unsignedBigInteger('post_id');
             $table->foreign('post_id')
                     ->references('id')
@@ -29,7 +28,6 @@ class CreateEtiquetaspostsTable extends Migration
                     ->on('etiquetas')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-                    
             $table->timestamps();
         });
     }
@@ -41,6 +39,6 @@ class CreateEtiquetaspostsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('etiquetasposts');
+        Schema::dropIfExists('etiquetas_posts');
     }
 }

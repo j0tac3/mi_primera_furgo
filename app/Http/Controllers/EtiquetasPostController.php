@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Etiquetaspost;
+use App\Models\EtiquetasPost;
 
 class EtiquetasPostController extends Controller
 {
     public function index() {
-        $etiquetasPost = Post::all();
+        $etiquetasPost = EtiquetasPost::all();
         return $etiquetasPost;
     }
 
     public function show($id) {
-        $etiquetasPost = Etiquetaspost::findOrFail($id);
+        $etiquetasPost = EtiquetasPost::findOrFail($id);
         return $etiquetasPost;
     }
 
@@ -24,7 +24,7 @@ class EtiquetasPostController extends Controller
             'etiqueta_id' => 'required',
         ]);
             
-        return Etiquetaspost::create($request->all());
+        return EtiquetasPost::create($request->all());
     }
 
     public function update(Request $request, $id) {
@@ -33,12 +33,12 @@ class EtiquetasPostController extends Controller
             'etiqueta_id' => 'required',
         ]);
         
-        $etiquetasPost = Etiquetaspost::findOrFail($id);       
+        $etiquetasPost = EtiquetasPost::findOrFail($id);       
         return  $etiquetasPost->update($request->all());
     }
 
     public function destroy($id) {
-        $etiquetasPost = Etiquetaspost::findOrFail($id);        
+        $etiquetasPost = EtiquetasPost::findOrFail($id);        
         return $etiquetasPost->delete();
     }
 }
