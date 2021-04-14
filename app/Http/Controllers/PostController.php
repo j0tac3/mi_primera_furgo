@@ -9,7 +9,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::with(['seccion'])->paginate(10);
+        $post = Post::paginate(10);
         return PostResource::collection($post);
     }
 
