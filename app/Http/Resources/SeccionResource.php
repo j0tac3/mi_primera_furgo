@@ -15,10 +15,10 @@ class SeccionResource extends JsonResource
     public function toArray($request)
     {
         //return parent::toArray($request);
-        $post = $this->whenLoaded('posts');
+        //$post = $this->whenLoaded('posts');
         return [
             'id' => $this->id,
-            'posts' => (new PostResource($post)),
+            //'posts' => (new PostResource($post)),
         ];
     }
 }
