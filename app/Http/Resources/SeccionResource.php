@@ -18,7 +18,7 @@ class SeccionResource extends JsonResource
         $post = $this->whenLoaded('posts');
         return [
             'id' => $this->id,
-            'post' => new PostResource(($post)),
+            'posts' => (new PostResource($post)),
         ];
     }
 }
