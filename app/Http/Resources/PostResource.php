@@ -24,7 +24,7 @@ class PostResource extends JsonResource
             'user_id' => $this->user_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'secciones' => SeccionResource::collection($this->whenLoaded('secciones')),
+            'secciones' => SeccionResource::collection($this->secciones),
         ];
     }
 
