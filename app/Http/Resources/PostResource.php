@@ -16,6 +16,23 @@ class PostResource extends JsonResource
 
     public function toArray($request)
     {
-        return parent::toArray($request);
+        //return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'titulo' => $this->titulo,
+            'image_url' => $this->image_url,
+            'user_id' => $this->user_id,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
+            'secciones' => SeccionResource::collection($this->whenLoaded('seccion')),
+        ];
+    }
+
+    public function with($request)
+    {
+        return [
+            'version' => '1.0.0',
+            'author' => 'SerJun'
+        ];
     }
 }
