@@ -9,13 +9,13 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::paginate(10);
+        $post = Post::with(['seccion'])->paginate(10);
         return PostResource::collection($post);
     }
 
     public function show($id) {
         $post = Post::findOrFail($id);
-        return PostResource::collection($post);
+        return new PostResource($post);
     }
 
     public function store(Request $request) {
