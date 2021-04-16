@@ -5,17 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\EtiquetasPost;
+use App\Http\Resources\EtiquetasPostResource;
 
-class EtiquetasPostController extends Controller
+class EtiquetasPostController extends Controller    
 {
     public function index() {
         $etiquetasPost = EtiquetasPost::all();
-        return $etiquetasPost;
+        return EtiquetasPostResource::collection($etiquetasPost);
     }
 
     public function show($id) {
         $etiquetasPost = EtiquetasPost::findOrFail($id);
-        return $etiquetasPost;
+        return new EtiquetasPostResource($etiquetasPost);
     }
 
     public function store(Request $request) {

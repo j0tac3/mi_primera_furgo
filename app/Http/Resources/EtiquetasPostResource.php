@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class SeccionResource extends JsonResource
+class EtiquetasPostResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -14,11 +14,11 @@ class SeccionResource extends JsonResource
      */
     public function toArray($request)
     {
-        //return parent::toArray($request);
-        $post = $this->whenLoaded('posts');
+        ///return parent::toArray($request);
         return [
             'id' => $this->id,
-            'posts' => (new PostResource($post)),
+            'post_id' => $this->id_post,
+            'etiqueta_id' => $this->id_etiqueta,
         ];
     }
 }
