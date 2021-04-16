@@ -12,18 +12,18 @@ class Post extends Model
     protected $fillable = array('titulo', 'image_url', 'user_id');
 
     public function user(){
-        return $this->hasOne('App\Models\User');
+        return $this->belongsTo(User::class);
     }
 
     public function seccion(){
-        return $this->belongsTo('App\Models\Seccion');
+        return $this->hasOne(Seccion::class);
     }
 
     public function etiquetaPost(){
-        return $this->belongsTo('App\Models\EtiquetaPost');
+        return $this->hasOne(EtiquetasPost::class);
     }
 
     public function comentario(){
-        return $this->belongsTo('App\Models\Comentario');
+        return $this->hasOne(Comentario::class);
     }
 }

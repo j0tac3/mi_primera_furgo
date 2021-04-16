@@ -11,10 +11,10 @@ class EtiquetasPost extends Model
     protected $fillable = array('id', 'etiqueta_id', 'post_id');
 
     public function post(){
-        return $this->hasOne('App\Models\Post');
+        return $this->belongsTo(Post::class);
     }
 
     public function etiqueta(){
-        return $this->hasOne('App\Models\Etiqueta');
+        return $this->belongsTo(Etiqueta::class);
     }
 }
