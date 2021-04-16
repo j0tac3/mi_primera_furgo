@@ -15,6 +15,6 @@ class EtiquetasPost extends Model
     }
 
     public function etiqueta(){
-        return $this->belongsTo(Etiqueta::class);
+        return $this->belongsTo(Etiqueta::class)->withDefault();
     }
 }
