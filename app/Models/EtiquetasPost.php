@@ -15,6 +15,6 @@ class EtiquetasPost extends Model
     }
 
     public function etiqueta(){
-        return $this->hasOne('App\Models\etiqueta');
+        return $this->hasOne('App\Models\Etiqueta');
     }
 }
