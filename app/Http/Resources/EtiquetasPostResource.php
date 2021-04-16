@@ -19,6 +19,7 @@ class EtiquetasPostResource extends JsonResource
             'id' => $this->id,
             'post_id' => $this->id_post,
             'etiqueta_id' => $this->id_etiqueta,
+            'post' => $this->post,
         ];
     }
 }
