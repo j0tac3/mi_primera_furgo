@@ -16,11 +16,11 @@ class Post extends Model
     }
 
     public function seccion(){
-        return $this->hasMany(Seccion::class)->withDefault();;
+        return $this->belongsTo(Seccion::class)->withDefault();;
     }
 
     public function etiquetaPost(){
-        return $this->hasOne(EtiquetasPost::class)->withDefault();;
+        return $this->belongsTo(EtiquetasPost::class)->withDefault();;
     }
 
     public function comentario(){
