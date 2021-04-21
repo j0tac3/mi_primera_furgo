@@ -9,7 +9,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::with(['etiquetasPost.post']);
+        $post = Post::with(['etiquetaPost.post']);
         return PostResource::collection($post->paginate(20))->response();
     }
 
