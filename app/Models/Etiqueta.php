@@ -11,6 +11,6 @@ class Etiqueta extends Model
     protected $fillable = array('desc');
 
     public function etiquetaPost(){
-        return $this->belongsTo('App\Models\EtiquetaPost');
+        return $this->hasMany('App\Models\EtiquetaPost');
     }
 }
