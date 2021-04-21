@@ -10,10 +10,10 @@ class Comentario extends Model
     use HasFactory;
 
     public function user(){
-        return $this->hasOne('App\Models\User');
+        return $this->belongsTo('App\Models\User');
     }
 
     public function post(){
-        return $this->hasOne('App\Models\Post');
+        return $this->belongsTo('App\Models\Post');
     }
 }
