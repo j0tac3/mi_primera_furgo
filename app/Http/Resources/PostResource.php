@@ -17,6 +17,7 @@ class PostResource extends JsonResource
     public function toArray($request)
     {
         //return parent::toArray($request);
+        
         $etiquetasPost = $this->whenLoaded('etiquetasPost');
         return [
             'id' => $this->id,
