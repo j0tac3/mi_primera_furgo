@@ -26,8 +26,8 @@ class PostResource extends JsonResource
             'user_id' => $this->user_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            //'etiquetas' => $this->etiquetasPost,
-            'etiquetas' => (new EtiquetasPostResource($etiquetasPost)),
+            'etiquetas' => $this->etiquetasPost,
+            //'etiquetas' => (new EtiquetasPostResource($etiquetasPost)),
             //'etiquetas' => EtiquetasPostResource::collection($this->whenLoaded('etiquetaPost')),
         ];
     }
