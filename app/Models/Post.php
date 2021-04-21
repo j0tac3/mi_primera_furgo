@@ -20,7 +20,7 @@ class Post extends Model
     }
 
     public function etiquetaPost(){
-        return $this->hasMany(EtiquetasPost::class)->withDefault();;
+        return $this->belongsTo(EtiquetasPost::class)->withDefault();;
     }
 
     public function comentario(){
