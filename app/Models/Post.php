@@ -20,7 +20,7 @@ class Post extends Model
     }
 
     public function etiquetaPost(){
-        return $this->hasOne(EtiquetasPost::class);
+        return $this->hasMany(EtiquetasPost::class);
     }
 
     public function comentario(){
