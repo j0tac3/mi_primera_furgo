@@ -12,18 +12,18 @@ class Post extends Model
     protected $fillable = array('titulo', 'image_url', 'user_id');
 
     public function user(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault();;
     }
 
     public function seccion(){
-        return $this->hasOne(Seccion::class);
+        return $this->hasMany(Seccion::class)->withDefault();;
     }
 
     public function etiquetaPost(){
-        return $this->hasMany(EtiquetasPost::class);
+        return $this->hasMany(EtiquetasPost::class)->withDefault();;
     }
 
     public function comentario(){
-        return $this->hasOne(Comentario::class);
+        return $this->hasOne(Comentario::class)->withDefault();;
     }
 }
