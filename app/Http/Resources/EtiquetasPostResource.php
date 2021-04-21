@@ -15,11 +15,13 @@ class EtiquetasPostResource extends JsonResource
     public function toArray($request)
     {
         ///return parent::toArray($request);
+
+        $post = $this->whenLoaded('post');
         return [
             'id' => $this->id,
             'post_id' => $this->post_id,
             'etiqueta_id' => $this->etiqueta_id,
-            'post' => $this->post,
+            'post' => new PostResource($post),
         ];
     }
 }
