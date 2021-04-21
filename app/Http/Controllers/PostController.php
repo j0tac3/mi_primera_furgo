@@ -9,8 +9,8 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::paginate(10);
-        return PostResource::collection($post);
+        $post = Post::with(['etiquetasPost.post']);
+        return PostResource::collection($post->paginate(20))->response();
     }
 
     public function show($id) {
