@@ -12,7 +12,7 @@ class Seccion extends Model
     protected $fillable = array('order', 'texto', 'post_id');
 
     public function post(){
-        return $this->hasOne('App\Models\Post');
+        return $this->belongsTo('App\Models\Post');
     }
 
     public function imagen(){
