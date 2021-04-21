@@ -16,7 +16,7 @@ class Post extends Model
     }
 
     public function seccion(){
-        return $this->hasMany(Seccion::class)->withDefault();;
+        return $this->belongsTo(Seccion::class)->withDefault();;
     }
 
     public function etiquetaPost(){
@@ -24,6 +24,6 @@ class Post extends Model
     }
 
     public function comentario(){
-        return $this->hasOne(Comentario::class)->withDefault();;
+        return $this->belongsTo(Comentario::class)->withDefault();;
     }
 }
