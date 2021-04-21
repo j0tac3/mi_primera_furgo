@@ -18,7 +18,7 @@ class PostResource extends JsonResource
     {
         //return parent::toArray($request);
 
-        $etiquetasPost = $this->whenLoaded('etiquetasPost');
+        $etiquetasPost = $this->whenLoaded('etiquetaPost');
         return [
             'id' => $this->id,
             'titulo' => $this->titulo,
