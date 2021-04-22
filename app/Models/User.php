@@ -44,10 +44,10 @@ class User extends Authenticatable
     public function post(){
         /* $post = Post::where('user_id', $this->id)->first();
         return $post; */
-        return $this->belongsTo('App\Models\Post');
+        return $this->hasMany('App\Models\Post');
     }
 
     public function comentario(){
-        return $this->belongsTo('App\Models\Comentario');
+        return $this->hasMany('App\Models\Comentario');
     }
 }
