@@ -21,6 +21,7 @@ class EtiquetasPostResource extends JsonResource
             'id' => $this->id,
             'post_id' => $this->post_id,
             'etiqueta_id' => $this->etiqueta_id,
+            'desc' => $this->etiqueta->desc,
             'post' => (new PostResource($post)),
             //'post' => $this->post,
         ];
