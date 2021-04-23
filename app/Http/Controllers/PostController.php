@@ -35,14 +35,14 @@ class PostController extends Controller
         }
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request) {
         $request->validate([
             'titulo' => 'required',
             //'image_url' => 'required',
             //'user_id' => 'required'
         ]);
         
-        $post = Post::findOrFail($id);       
+        $post = Post::findOrFail($request->id);       
         //return  $post->update($request->all());
         $post->titulo = $request->titulo;
         $post->image_url = $request->image_url;
