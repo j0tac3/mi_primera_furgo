@@ -28,6 +28,7 @@ class PostController extends Controller
 
         $post = new Post();
         $post->titulo = $request->titulo;
+        $post->subtitulo = $request->subtitulo;
         $post->image_url = $request->image_url;
         $post->user_id = $request->user_id;
         if ($post->save()){
@@ -45,6 +46,7 @@ class PostController extends Controller
         $post = Post::findOrFail($request->id);       
         //return  $post->update($request->all());
         $post->titulo = $request->titulo;
+        $post->subtitulo = $request->subtitulo;
         $post->image_url = $request->image_url;
         $post->user_id = $request->user_id;
         if ($post->save()){
