@@ -30,7 +30,7 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->image_url = $request->image_url;
         $post->user_id = $request->user_id;
-        if ($post->save()){
+        if (Post::create($request)){
             return new PostResource($post);
         }
     }
