@@ -35,7 +35,7 @@ class PostController extends Controller
         }
     }
 
-    public function update(Request $request) {
+    public function update(Request $request, $id) {
         $request->validate([
             'titulo' => 'required',
             //'image_url' => 'required',
