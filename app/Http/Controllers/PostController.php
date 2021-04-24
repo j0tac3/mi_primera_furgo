@@ -41,8 +41,9 @@ class PostController extends Controller
             //'image_url' => 'required',
             //'user_id' => 'required'
         ]);
+        return Post::create($request->all());
         
-        $post = Post::findOrFail($id);       
+       /*  $post = Post::findOrFail($id);       
         //return  $post->update($request->all());
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
@@ -50,7 +51,7 @@ class PostController extends Controller
         $post->user_id = $request->user_id;
         if ($post->save()){
             return new PostResource($post);
-        }
+        } */
     }
 
     public function destroy($id) {
