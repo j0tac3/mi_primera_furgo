@@ -23,16 +23,16 @@ class PostController extends Controller
             'titulo' => 'required',
             'user_id' => 'required'
         ]);
-        return Post::create($request->all());
+        //return Post::create($request->all())
 
-        /* $post = new Post();
+        $post = new Post();
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
         $post->image_url = $request->image_url;
         $post->user_id = $request->user_id;
         if ($post->save()){
             return new PostResource($post);
-        } */
+        }
     }
 
     public function update(Request $request) {
