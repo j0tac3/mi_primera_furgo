@@ -30,7 +30,7 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->image_url = $request->image_url;
         $post->user_id = $request->user_id;
-        if (Post::create($request->all())){
+        if ($post->save()){
             return new PostResource($post);
         }
     }
@@ -42,7 +42,7 @@ class PostController extends Controller
             //'user_id' => 'required'
         ]);
         
-        $post = Post::findOrFail($request->id);       
+        $post = Post::findOrFail($id);       
         //return  $post->update($request->all());
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
