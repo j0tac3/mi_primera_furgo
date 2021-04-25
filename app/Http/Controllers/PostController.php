@@ -54,10 +54,10 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
 
-        $path = Storage::putFile('photos', $request->file('headerImage'));
+        $path = Storage::putFile('images', $request->file('headerImage'));
         //$post->image_url = $request->image_url;
         $post->image_url = $path;
-        
+
         if ($post->save()){
             return new PostResource($post);
         }
