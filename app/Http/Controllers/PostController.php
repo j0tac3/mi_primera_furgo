@@ -56,7 +56,7 @@ class PostController extends Controller
         
         $image =  $request->file('headerImage');
         if ($image){
-            $image_path = $image->file('images')->store();
+            $image_path = $image->store('images');
             $post->image_url = $image_path;
         }
 
