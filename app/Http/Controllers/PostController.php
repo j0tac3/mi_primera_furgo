@@ -54,8 +54,8 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
         
-        $image =  $request->file('headerImage');
-        if ($image){
+        if ($request->file('headerImage')){
+            $image =  $request->file('headerImage');
             $image_path = $image->store('images');
             $post->image_url = $image_path;
         }
