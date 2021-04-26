@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Resources\PostResource;
+use App\Models\EtiquetasPost;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
@@ -32,9 +33,9 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
 
-        /* $path = Storage::putFile('images', $request->file('headerImage'));
+        $path = Storage::putFile('images', $request->file('headerImage'));
         //$post->image_url = $request->image_url;
-        $post->image_url = $path; */
+        $post->image_url = $path;
 
         if ($post->save()){
             return new PostResource($post);
@@ -54,13 +55,14 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
         
-        /* if ($request->file('headerImage')){
+        if ($request->file('headerImage')){
             $image =  $request->file('headerImage');
             $image_path = $image->store('images');
             $post->image_url = $image_path;
         }
- */
+
         if ($post->save()){
+            $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         }
     }
