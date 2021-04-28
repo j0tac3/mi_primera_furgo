@@ -28,29 +28,43 @@ class PostController extends Controller
         ]);
         //return Post::create($request->all())
 
-        $post = new Post();
+       /*  $post = new Post();
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
-        $post->user_id = $request->user_id;
+        $post->user_id = $request->user_id; */
 
-        $path = Storage::putFile('images', $request->file('headerImage'));
-        //$post->image_url = $request->image_url;
-        $post->image_url = $path;
-
-        if ($post->save()){
-            return new PostResource($post);
+        if ($request->file('headerImage')){
+            $path = $request->file('headerImage')->store('images');
+            //$post->image_url = $request->image_url;
+            $request->image_url = $path;
         }
+        if (Post::create($request->all())){
+            return new PostResource($request);
+        }
+
+        /* if ($post->save()){
+            return new PostResource($post);
+        } */
     }
 
-    public function update(Request $request, $id) {
+    public function update(Request $request, Post $post) {
         $request->validate([
             'titulo' => 'required',
             //'image_url' => 'required',
             //'user_id' => 'required'
         ]);
         
-        $post = Post::findOrFail($id);       
+        //$post = Post::findOrFail($id);       
         //return  $post->update($request->all());
+        if ($request->file('headerImage')){
+            $path = $request->file('headerImage')->store('images');
+            //$post->image_url = $request->image_url;
+            $request->image_url = $path;
+        }
+        if ($post->update($request->all())){
+            return new PostResource($post);
+        }
+        /* 
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
@@ -64,7 +78,7 @@ class PostController extends Controller
         if ($post->save()){
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
-        }
+        } */
     }
 
     public function destroy($id) {
