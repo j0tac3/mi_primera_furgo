@@ -61,11 +61,11 @@ class PostController extends Controller
             //$post->image_url = $request->image_url;
             $request->image_url = $path;
         }
-        if ($post->update($request->all())){
+        /* if ($post->update($request->all())){
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
-        }
-        /* 
+        } */
+        
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
@@ -79,7 +79,7 @@ class PostController extends Controller
         if ($post->save()){
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
-        } */
+        }
     }
 
     public function destroy($id) {
