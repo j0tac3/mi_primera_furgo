@@ -49,7 +49,7 @@ class PostController extends Controller
 
     public function update(Request $request, Post $post) {
         $request->validate([
-            'titulo' => 'required',
+            //'titulo' => 'required',
             //'image_url' => 'required',
             //'user_id' => 'required'
         ]);
