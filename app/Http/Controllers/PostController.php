@@ -56,11 +56,11 @@ class PostController extends Controller
         
         $post = Post::findOrFail($id);       
         //return  $post->update($request->all());
-        if ($request->file('headerImage')){
+       /*  if ($request->file('headerImage')){
             $path = $request->file('headerImage')->store('images');
             //$post->image_url = $request->image_url;
             $request->image_url = $path;
-        }
+        } */
         /* if ($post->update($request->all())){
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
