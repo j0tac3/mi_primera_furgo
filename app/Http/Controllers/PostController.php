@@ -54,7 +54,7 @@ class PostController extends Controller
             //'user_id' => 'required'
         ]);
         
-        //$post = Post::findOrFail($id);       
+        $post = Post::findOrFail($request->id);       
         //return  $post->update($request->all());
         if ($request->file('headerImage')){
             $path = $request->file('headerImage')->store('images');
@@ -62,6 +62,7 @@ class PostController extends Controller
             $request->image_url = $path;
         }
         if ($post->update($request->all())){
+            $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         }
         /* 
