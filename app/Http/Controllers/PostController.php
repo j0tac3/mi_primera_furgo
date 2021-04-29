@@ -28,23 +28,23 @@ class PostController extends Controller
         ]);
         //return Post::create($request->all())
 
-       /*  $post = new Post();
+        $post = new Post();
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
-        $post->user_id = $request->user_id; */
+        $post->user_id = $request->user_id;
 
         if ($request->file('headerImage')){
             $path = $request->file('headerImage')->store('images');
             //$post->image_url = $request->image_url;
             $request->image_url = $path;
         }
-        if (Post::create($request->all())){
+       /*  if (Post::create($request->all())){
             return new PostResource($request);
-        }
-
-        /* if ($post->save()){
-            return new PostResource($post);
         } */
+
+        if ($post->save()){
+            return new PostResource($post);
+        }
     }
 
     public function update(Request $request, $id) {
