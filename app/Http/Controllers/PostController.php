@@ -77,7 +77,7 @@ class PostController extends Controller
         }
 
         if ($post->save()){
-            $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
+            //$etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         }
     }
