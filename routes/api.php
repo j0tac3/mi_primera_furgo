@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Resources\PostResource;
 use App\Models\Etiqueta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
