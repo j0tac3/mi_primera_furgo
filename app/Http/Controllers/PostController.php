@@ -6,8 +6,6 @@ use App\Http\Resources\PostResource;
 use App\Models\EtiquetasPost;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\File;
 
 class PostController extends Controller
 {
