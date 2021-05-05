@@ -15,6 +15,14 @@ class ComentariosResource extends JsonResource
     public function toArray($request)
     {
         //return parent::toArray($request);
-        
+        $post = $this->whenLoaded('post');
+        return [
+            'id' => $this->id,
+            'post_id' => $this->post_id,
+            'user_id' => $this->etiqueta_id,
+            'texto' => $this->etiqueta->desc,
+            'post' => (new PostResource($post)),
+            //'post' => $this->post,
+        ];
     }
 }
