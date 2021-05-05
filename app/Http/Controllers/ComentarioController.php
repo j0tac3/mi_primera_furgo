@@ -27,11 +27,11 @@ class ComentarioController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
+       /*  $request->validate([
             'texto' => 'required',
             'user_id' => 'user_id',
             'post_id' => 'post_id',
-        ]);
+        ]); */
 
         $comentario = new Comentario();
         $comentario->user_id = $request->user_id;
