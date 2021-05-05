@@ -32,6 +32,9 @@ Route::apiResources([
 Route::apiResources([
     'etiquetasPost' => App\Http\Controllers\EtiquetasPostController::class
 ]);
+Route::apiResources([
+    'comentario' => App\Http\Controllers\ComentarioController::class
+]);
 //Routes to Etiquetas
 /* Route::get('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'index'])->name('etiqueta.index');
 Route::post('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'store'])->name('etiqueta.store');
