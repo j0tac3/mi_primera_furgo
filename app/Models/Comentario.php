@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Comentario extends Model
 {
     use HasFactory;
+    protected $fillable = array('user_id', 'post_id', 'texto');
 
     public function user(){
         return $this->belongsTo('App\Models\User');
