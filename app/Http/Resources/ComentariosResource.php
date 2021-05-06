@@ -22,7 +22,7 @@ class ComentariosResource extends JsonResource
             'user_id' => $this->user_id,
             'texto' => $this->texto,
             'posts' => PostResource::collection($this->whenLoaded('post')),
-            'allPost' => $this->post->id
+            'allPost' => $this->post
         ];
     }
 }
