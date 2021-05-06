@@ -21,7 +21,7 @@ class ComentariosResource extends JsonResource
             'post_id' => $this->post_id,
             'user_id' => $this->user_id,
             'texto' => $this->texto,
-            'posts' => PostResource::collection($this->whenLoaded('post')),
+            //'posts' => PostResource::collection($this->whenLoaded('post')),
             'allPost' => $this->post
         ];
     }
