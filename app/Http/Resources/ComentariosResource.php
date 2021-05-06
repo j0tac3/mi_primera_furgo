@@ -19,8 +19,8 @@ class ComentariosResource extends JsonResource
         return [
             'id' => $this->id,
             'post_id' => $this->post_id,
-            'user_id' => $this->etiqueta_id,
-            'texto' => $this->etiqueta->desc,
+            'user_id' => $this->user_id,
+            'texto' => $this->texto,
             'post' => (new PostResource($post)),
             //'post' => $this->post,
         ];
