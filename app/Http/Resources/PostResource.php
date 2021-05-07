@@ -30,6 +30,7 @@ class PostResource extends JsonResource
             'updated_at' => $this->updated_at,
             'etiquetas' => EtiquetasPostResource::collection(($this->etiquetaPost)),
             'comentarios' => ComentariosResource::collection(($this->comentario)),
+            'nComents' => ComentariosResource::collection(($this->comentario))->count(),
         ];
     }
 
