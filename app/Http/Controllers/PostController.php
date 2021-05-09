@@ -10,8 +10,8 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::paginate(10);
-        return PostResource::collection($post)->orderBy('created_at', 'asc');
+        $post = Post::paginate(10)->orderBy('created_at', 'asc');
+        return PostResource::collection($post);
     }
 
     public function show($id) {
