@@ -10,8 +10,8 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::latest()->take(5)->get();
-        return PostResource::collection($post);
+        $post = Post::latest()->paginate(10);
+        return PostResource::collection($post)->take(2);
     }
 
     public function show($id) {
