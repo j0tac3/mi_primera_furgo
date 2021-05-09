@@ -30,7 +30,7 @@ class PostResource extends JsonResource
             'user_name' => $this->user->name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'timeFrom' => $this->created_at->diffForHumar(),
+            'timeFrom' => $this->created_at->diffForHuman(),
             'etiquetas' => EtiquetasPostResource::collection(($this->etiquetaPost)),
             'comentarios' => ComentariosResource::collection(($this->comentario)),
             'nComents' => ComentariosResource::collection(($this->comentario))->count(),
