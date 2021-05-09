@@ -10,7 +10,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::latest()->take(5);
+        $post = Post::latest()->take(5)->get();
         return PostResource::collection($post);
     }
 
