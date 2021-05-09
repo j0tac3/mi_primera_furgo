@@ -10,7 +10,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::orderBy('created_at', 'desc')->paginate(10);
+        $post = Post::orderBy('created_at', 'desc')->take(2);
         return PostResource::collection($post);
     }
 
