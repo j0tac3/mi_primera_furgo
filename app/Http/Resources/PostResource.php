@@ -34,7 +34,7 @@ class PostResource extends JsonResource
             'etiquetas' => EtiquetasPostResource::collection(($this->etiquetaPost)),
             'comentarios' => ComentariosResource::collection(($this->comentario)),
             'nComents' => ComentariosResource::collection(($this->comentario))->count(),
-            'views' => rand(2, 50),
+            'views' => rand(2, 50), //Falta añadir el campo a la migracion
         ];
     }
 

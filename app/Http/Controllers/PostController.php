@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index() {
         $post = Post::paginate(10);
-        return PostResource::collection($post);
+        return PostResource::collection($post)->orderBy('created_at', 'asc');
     }
 
     public function show($id) {
