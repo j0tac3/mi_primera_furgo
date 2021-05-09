@@ -10,7 +10,7 @@ use App\Models\Post;
 class PostController extends Controller
 {
     public function index() {
-        $post = Post::latest()->take()->paginate(10);
+        $post = Post::latest()->take(5)->paginate(10);
         return PostResource::collection($post);
     }
 
