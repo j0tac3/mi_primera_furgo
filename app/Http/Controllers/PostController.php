@@ -11,7 +11,7 @@ class PostController extends Controller
 {
     public function index() {
         $post = Post::latest()->paginate(10);
-        return PostResource::collection($post)->take(2);
+        return PostResource::collection($post);
     }
 
     public function show($id) {
