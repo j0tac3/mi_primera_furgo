@@ -2,6 +2,7 @@
 
 namespace App\Http\Resources;
 
+use DateTime;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PostResource extends JsonResource
@@ -19,6 +20,7 @@ class PostResource extends JsonResource
         //return parent::toArray($request);
 
         $etiquetasPost = $this->whenLoaded('etiquetaPost');
+        $currentDate = new DateTime();
         return [
             'id' => $this->id,
             'titulo' => $this->titulo,
@@ -28,6 +30,7 @@ class PostResource extends JsonResource
             'user_name' => $this->user->name,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
+            'timeFrom' => $currentDate->sub($this->created_at),
             'etiquetas' => EtiquetasPostResource::collection(($this->etiquetaPost)),
             'comentarios' => ComentariosResource::collection(($this->comentario)),
             'nComents' => ComentariosResource::collection(($this->comentario))->count(),
