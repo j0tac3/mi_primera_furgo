@@ -89,7 +89,7 @@ class PostController extends Controller
     }
 
     public function getMostRecentPosts(){
-        $mostRecentPosts = Post::all()->orderBy('created_at', 'desc')->take(5);
+        $mostRecentPosts = Post::latest()->take(5);
         return new PostResource($mostRecentPosts);
     }
 }
