@@ -9,13 +9,13 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function index() {
-        $user = User::all()->paginate(10);
+        $user = User::paginate(10);
         return UserResource::collection($user);
     }
 
     public function show($id) {
         $user = User::findOrFail($id);
-        return $user;
+        return new UserResource($user);
     }
 
     public function store(Request $request) {
