@@ -20,10 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get(['post/mostRecentPosts', PostController::class, 'mostRecentPosts'])->name('post.mostRecentPosts');
+
 Route::apiResources([
-    'etiqueta' => App\Http\Controllers\EtiquetaController::class
+    'etiqueta' => EtiquetaController::class,
+    'post' => App\Http\Controllers\PostController::class,
+    'user' => App\Http\Controllers\UserController::class,
+    'etiquetasPost' => App\Http\Controllers\EtiquetasPostController::class,
+    'comentario' => App\Http\Controllers\ComentarioController::class
 ]);
-Route::apiResources([
+/* Route::apiResources([
     'post' => App\Http\Controllers\PostController::class
 ]);
 Route::apiResources([
@@ -34,7 +40,7 @@ Route::apiResources([
 ]);
 Route::apiResources([
     'comentario' => App\Http\Controllers\ComentarioController::class
-]);
+]); */
 //Routes to Etiquetas
 /* Route::get('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'index'])->name('etiqueta.index');
 Route::post('etiquetas', [App\Http\Controllers\EtiquetaController::class, 'store'])->name('etiqueta.store');
