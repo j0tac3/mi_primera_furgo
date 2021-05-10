@@ -89,7 +89,7 @@ class PostController extends Controller
     }
 
     public function getMostRecentPosts(){
-        $mostRecentPosts = Post::take(-5);
+        $mostRecentPosts = Post::take(-5)->get();
         return PostResource::collection($mostRecentPosts);
     }
 }
