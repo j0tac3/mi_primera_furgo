@@ -4,6 +4,7 @@ use App\Http\Resources\PostResource;
 use App\Models\Etiqueta;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,10 +21,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('mostRecentPosts', [PostController::class, 'getMostRecentPosts']);
+Route::get('mostRecentPosts', [App\Http\Controllers\PostController::class, 'getMostRecentPosts']);
 
 Route::apiResources([
-    'etiqueta' => EtiquetaController::class,
+    'etiqueta' => App\Http\Controllers\EtiquetaController::class,
     'post' => App\Http\Controllers\PostController::class,
     'user' => App\Http\Controllers\UserController::class,
     'etiquetasPost' => App\Http\Controllers\EtiquetasPostController::class,
