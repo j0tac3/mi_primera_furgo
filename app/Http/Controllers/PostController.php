@@ -71,9 +71,9 @@ class PostController extends Controller
         $post->user_id = $request->user_id;
         
         /* if ($request->file('headerImage')){ */
-            $image =  $request->file('headerImage');
-            $image_path = Storage::putFile('images', $request->headerImage);
-            $post->image_url = $image_path;
+            $image =  $request->headerImage;
+            $image_path = Storage::putFile('public/images', $request->headerImage);
+            $post->image_url = $image->getClientOriginalName();
         //}
 
         if ($post->save()){
