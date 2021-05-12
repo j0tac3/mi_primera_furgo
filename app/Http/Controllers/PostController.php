@@ -6,6 +6,8 @@ use App\Http\Resources\PostResource;
 use App\Models\EtiquetasPost;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use Illuminate\Support\Facades\Storage;
+
 
 class PostController extends Controller
 {
@@ -70,7 +72,7 @@ class PostController extends Controller
         
         /* if ($request->file('headerImage')){ */
             $image =  $request->file('headerImage');
-            $image_path = $request->headerImage->store('images');
+            $image_path = Storage::putFile('images', $request->headerImage);
             $post->image_url = $image_path;
         //}
 
