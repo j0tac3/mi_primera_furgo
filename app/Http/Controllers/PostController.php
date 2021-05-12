@@ -68,11 +68,11 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
         
-        if ($request->file('headerImage')){
+        /* if ($request->file('headerImage')){ */
             $image =  $request->file('headerImage');
             $image_path = $image->store('images');
             $post->image_url = $image_path;
-        }
+        //}
 
         if ($post->save()){
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
