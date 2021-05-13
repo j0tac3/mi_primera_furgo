@@ -23,8 +23,9 @@ class PostController extends Controller
     public function store(Request $request) {
   
         //return Post::create($request->all())
-        dd($request->headerImage);
-
+        if ($request->hasFile('headerImage')){
+            dd($request->headerImage);
+        }
         
     }
 
