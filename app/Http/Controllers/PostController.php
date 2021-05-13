@@ -28,23 +28,7 @@ class PostController extends Controller
         //return Post::create($request->all())
         dd($request);
 
-        $post = new Post();
-        $post->titulo = $request->titulo;
-        $post->subtitulo = $request->subtitulo;
-        $post->user_id = $request->user_id;
-
-        if ($request->file('headerImage')){
-            $imageName =  $request->file('headerImage');
-            $image_path = Storage::putFile('public/images', $imageName);
-            $post->image_url = $imageName->getClientOriginalName();
-        }
-       /*  if (Post::create($request->all())){
-            return new PostResource($request);
-        } */
-
-        if ($post->save()){
-            return new PostResource($post);
-        }
+        
     }
 
     public function update(Request $request, $id) {
