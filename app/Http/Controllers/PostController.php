@@ -7,7 +7,7 @@ use App\Models\EtiquetasPost;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
-
+use PhpParser\JsonDecoder;
 
 class PostController extends Controller
 {
@@ -65,7 +65,7 @@ class PostController extends Controller
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         } */
-        
+        $data = $request->json()->all();
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
@@ -74,16 +74,16 @@ class PostController extends Controller
             /* $imageName =  $request->file('headerImage');
             $image_path = Storage::putFile('public/images', $request->headerImage);*/
             //$post->image_url = $request->headerImage->getClientOriginalName();
-            if($request->headerImage) 
+            if($data->headerImage) 
             { 
-                $file = $request->headerImage;
+                $file = $data->headerImage;
                 $extension = $file->getClientOriginalExtension(); // getting image extension
                 $filename =time().'.'.$extension;
                 $file->move('images/', $filename);
             }
         //}
 
-        if ($post->save()){
+        if ($data->save()){
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         }
