@@ -22,7 +22,6 @@ class PostController extends Controller
     }
 
     public function store(Request $request) {
-        dd($request);
         $request->validate([
             'titulo' => 'required',
             'user_id' => 'required'
@@ -66,7 +65,6 @@ class PostController extends Controller
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         } */
-        dd($request);
         
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
@@ -76,7 +74,7 @@ class PostController extends Controller
             /* $imageName =  $request->file('headerImage');
             $image_path = Storage::putFile('public/images', $request->headerImage);*/
             //$post->image_url = $request->headerImage->getClientOriginalName();
-            if($request->hasfile('business_logo')) 
+            if($request->hasfile('headerImage')) 
             { 
                 $file = $request->headerImage;
                 $extension = $file->getClientOriginalExtension(); // getting image extension
