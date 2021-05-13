@@ -66,6 +66,7 @@ class PostController extends Controller
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         } */
+        dd($request);
         
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
@@ -73,7 +74,7 @@ class PostController extends Controller
         
         /* if ($request->file('headerImage')){ */
             $imageName =  $request->file('headerImage');
-            $image_path = Storage::putFile('public/images', $request->headerImage[0]);
+            $image_path = Storage::putFile('public/images', $request->headerImage);
             //$post->image_url = $request->headerImage->getClientOriginalName();
         //}
 
