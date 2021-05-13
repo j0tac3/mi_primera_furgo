@@ -64,6 +64,7 @@ class PostController extends Controller
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         } */
+        dd($request);
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
