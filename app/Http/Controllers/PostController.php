@@ -21,10 +21,7 @@ class PostController extends Controller
     }
 
     public function store(Request $request) {
-        $request->validate([
-            'titulo' => 'required',
-            'user_id' => 'required'
-        ]);
+  
         //return Post::create($request->all())
         dd($request->headerImage);
 
