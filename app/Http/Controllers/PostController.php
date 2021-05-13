@@ -7,7 +7,7 @@ use App\Models\EtiquetasPost;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
-use PhpParser\JsonDecoder;
+use Eastwest\Json\Facades\Json;
 
 class PostController extends Controller
 {
@@ -65,7 +65,7 @@ class PostController extends Controller
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         } */
-        $data = $request->Json::deconde($request);
+        $data = Json::deconde($request);
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
