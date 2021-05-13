@@ -26,7 +26,7 @@ class PostController extends Controller
             'user_id' => 'required'
         ]);
         //return Post::create($request->all())
-        dd($request);
+        dd($request->headerImage);
 
         
     }
