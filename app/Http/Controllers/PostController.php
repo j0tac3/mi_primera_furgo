@@ -80,10 +80,11 @@ class PostController extends Controller
                 $extension = $file->getClientOriginalExtension(); // getting image extension
                 $filename =time().'.'.$extension;
                 $file->move('images/', $filename);
+                $post->image_url = $filename;
             }
         //}
 
-        if ($data->save()){
+        if ($post->save()){
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
             return new PostResource($post);
         }
