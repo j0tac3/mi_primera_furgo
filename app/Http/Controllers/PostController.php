@@ -34,7 +34,7 @@ class PostController extends Controller
         $post->user_id = $request->user_id;
 
         if ($request->file('headerImage')){
-            dd($request->file('headerImage'));
+            //dd($request->file('headerImage'));
             dd($request->headerImage);
             $imageName =  public_path('/images').$request->file('headerImage')->getClientOriginalName();
             dd($imageName);
