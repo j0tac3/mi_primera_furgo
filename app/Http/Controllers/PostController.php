@@ -41,7 +41,6 @@ class PostController extends Controller
             //$image_path = Storage::disk('local')->put($imageFinalURL, File::get($request->file('headerImage')));
             $imageFile = $request->file('headerImage')->storeAs('images',$request->file('headerImage')->getClientOriginalName());
             $post->image_url = $imageFile;
-            dd($post->image_url);
         }
        /*  if (Post::create($request->all())){
             return new PostResource($request);
