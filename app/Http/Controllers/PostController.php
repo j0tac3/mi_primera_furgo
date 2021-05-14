@@ -38,7 +38,7 @@ class PostController extends Controller
             //dd($request->headerImage);
             $imageName =  public_path('/images');
             $imageFinalURL = $imageName.'/'.$request->file('headerImage')->getClientOriginalName();
-            dd($imageName);
+            dd($imageFinalURL);
             $image_path = Storage::disk('local')->put($imageName, File::get($request->file('headerImage')));
             dd($image_path);
             $post->image_url = $imageName;
