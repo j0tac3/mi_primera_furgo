@@ -32,7 +32,7 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
 
-        if ($request->headerImage){
+        if ($request->file('headerImage')){
             dd($request->headerImage);
             $imageName =  $request->file('headerImage');
             $image_path = Storage::put('public/images', $imageName);
