@@ -3,7 +3,9 @@
 namespace App\Http\Resources;
 
 use DateTime;
+use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Resources\Json\JsonResource;
+use Illuminate\Support\Facades\Storage;
 
 class PostResource extends JsonResource
 {
@@ -26,6 +28,7 @@ class PostResource extends JsonResource
             'titulo' => $this->titulo,
             'subtitulo' => $this->subtitulo,
             'image_url' => $this->image_url,
+            'imageFile' => Storage::get($this->image_url),
             'user_id' => $this->user_id,
             'user_name' => $this->user->name,
             'created_at' => $this->created_at,
@@ -36,6 +39,10 @@ class PostResource extends JsonResource
             'nComents' => ComentariosResource::collection(($this->comentario))->count(),
             'views' => rand(2, 50), //Falta añadir el campo a la migracion
         ];
+    }
+
+    public function getImageFile($imageURL){
+        return Storage::get($imageURL);
     }
 
     public function with($request)
