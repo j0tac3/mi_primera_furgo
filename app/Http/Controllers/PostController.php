@@ -33,16 +33,16 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
 
-        if ($request->headerImage){
+       /*  if ($request->headerImage){
             //dd($request->file('headerImage'));
             //dd($request->headerImage);
             $imageName =  public_path('/images');
             $imageFinalURL = $imageName.'/'.$request->headerImage->getClientOriginalName();
             //$image_path = Storage::disk('local')->put($imageFinalURL, File::get($request->file('headerImage')));
-            $imageFile = $request->file('headerImage')->storeAs('images',$request->headerImage->getClientOriginalName());
-            $post->image_url = $request->headerImage->getClientOriginalName();
-        }
-        /* if ($request->file('headerImage')){
+            $imageFile = $request->file('headerImage')->storeAs('images',$request->file('headerImage')->getClientOriginalName());
+            $post->image_url = $request->file('headerImage')->getClientOriginalName();
+        } */
+        if ($request->file('headerImage')){
             //dd($request->file('headerImage'));
             //dd($request->headerImage);
             $imageName =  public_path('/images');
@@ -50,7 +50,7 @@ class PostController extends Controller
             //$image_path = Storage::disk('local')->put($imageFinalURL, File::get($request->file('headerImage')));
             $imageFile = $request->file('headerImage')->storeAs('images',$request->file('headerImage')->getClientOriginalName());
             $post->image_url = $request->file('headerImage')->getClientOriginalName();
-        } */
+        }
        /*  if (Post::create($request->all())){
             return new PostResource($request);
         } */
