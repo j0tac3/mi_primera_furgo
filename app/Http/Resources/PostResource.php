@@ -28,7 +28,7 @@ class PostResource extends JsonResource
             'titulo' => $this->titulo,
             'subtitulo' => $this->subtitulo,
             'image_url' => $this->image_url,
-            'imageFile' => Storage::get($this->image_url),
+            //'imageFile' => Storage::get($this->image_url),
             'user_id' => $this->user_id,
             'user_name' => $this->user->name,
             'created_at' => $this->created_at,
