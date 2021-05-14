@@ -7,6 +7,7 @@ use App\Models\EtiquetasPost;
 use Illuminate\Http\Request;
 use App\Models\Post;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\File;
 
 class PostController extends Controller
 {
@@ -35,9 +36,10 @@ class PostController extends Controller
         if ($request->file('headerImage')){
             dd($request->file('headerImage'));
             dd($request->headerImage);
-            $imageName =  $request->file('headerImage');
-            $image_path = Storage::put('public/images', $imageName);
-            $post->image_url = $imageName->getClientOriginalName();
+            $imageName =  public_path('/images').$request->file('headerImage')->getClientOriginalName();
+            dd($imageName);
+            $image_path = Storage::disk('local')->put($imageName, File::get($request->file('headerImage')));
+            $post->image_url = $imageName;
         }
        /*  if (Post::create($request->all())){
             return new PostResource($request);
