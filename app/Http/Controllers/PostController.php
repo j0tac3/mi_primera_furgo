@@ -21,12 +21,30 @@ class PostController extends Controller
     }
 
     public function store(Request $request) {
-  
+        $request->validate([
+            'titulo' => 'required',
+            'user_id' => 'required'
+        ]);
         //return Post::create($request->all())
-        if ($request->hasFile('headerImage')){
+
+        $post = new Post();
+        $post->titulo = $request->titulo;
+        $post->subtitulo = $request->subtitulo;
+        $post->user_id = $request->user_id;
+
+        if ($request->headerImage){
             dd($request->headerImage);
+            $imageName =  $request->file('headerImage');
+            $image_path = Storage::put('public/images', $imageName);
+            $post->image_url = $imageName->getClientOriginalName();
         }
-        
+       /*  if (Post::create($request->all())){
+            return new PostResource($request);
+        } */
+
+        if ($post->save()){
+            return new PostResource($post);
+        }
     }
 
     public function update(Request $request, $id) {
@@ -57,13 +75,11 @@ class PostController extends Controller
             /* $imageName =  $request->file('headerImage');
             $image_path = Storage::putFile('public/images', $request->headerImage);*/
             //$post->image_url = $request->headerImage->getClientOriginalName();
-            if($request->hasFile('headerImage')) 
-            { 
-                $file = $request->headerImage;
-                $extension = $file->getClientOriginalExtension(); // getting image extension
-                $filename =time().'.'.$extension;
-                $file->move('images/', $filename);
-                $post->image_url = $filename;
+            if ($request->headerImage){
+                dd($request->headerImage);
+                $imageName =  $request->file('headerImage');
+                $image_path = Storage::put('public/images', $imageName);
+                $post->image_url = $imageName->getClientOriginalName();
             }
         //}
 
