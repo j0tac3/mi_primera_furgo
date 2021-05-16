@@ -29,8 +29,8 @@ class PostResource extends JsonResource
             'titulo' => $this->titulo,
             'subtitulo' => $this->subtitulo,
             'image_url' => $this->image_url,
-            'imageFile' => base64_encode(Storage::get('images/'.$this->image_url)),
-            //'imageFile' => $this->getImageFile($this->image_url),
+            //'imageFile' => base64_encode(Storage::get('images/'.$this->image_url)),
+            'imageFile' => $this->getImageFile($this->image_url),
             'user_id' => $this->user_id,
             'user_name' => $this->user->name,
             'created_at' => $this->created_at,
@@ -45,7 +45,6 @@ class PostResource extends JsonResource
 
     public function getImageFile($imageURL){
         $path = public_path('images'.'/'.$imageURL);
-        dd(Storage::exists($path));
         if(Storage::exists($path)){
             dd($path);
             return Storage::get($imageURL);
