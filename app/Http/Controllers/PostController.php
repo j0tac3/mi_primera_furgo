@@ -33,18 +33,7 @@ class PostController extends Controller
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
 
-       /*  if ($request->headerImage){
-            //dd($request->file('headerImage'));
-            //dd($request->headerImage);
-            $imageName =  public_path('/images');
-            $imageFinalURL = $imageName.'/'.$request->headerImage->getClientOriginalName();
-            //$image_path = Storage::disk('local')->put($imageFinalURL, File::get($request->file('headerImage')));
-            $imageFile = $request->file('headerImage')->storeAs('images',$request->file('headerImage')->getClientOriginalName());
-            $post->image_url = $request->file('headerImage')->getClientOriginalName();
-        } */
-        if ($request->file('headerImage')){
-            //dd($request->file('headerImage'));
-            //dd($request->headerImage);
+        if ($request->hasFile('headerImage')){
             $imageName =  public_path('/images');
             $imageFinalURL = $imageName.'/'.$request->file('headerImage')->getClientOriginalName();
             //$image_path = Storage::disk('local')->put($imageFinalURL, File::get($request->file('headerImage')));
@@ -67,34 +56,19 @@ class PostController extends Controller
             //'user_id' => 'required'
         ]);
         
-        $post = Post::findOrFail($id);       
-        //return  $post->update($request->all());
-       /*  if ($request->file('headerImage')){
-            $path = $request->file('headerImage')->store('images');
-            //$post->image_url = $request->image_url;
-            $request->image_url = $path;
-        } */
-        /* if ($post->update($request->all())){
-            $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
-            return new PostResource($post);
-        } */
-        dd($request);
+        $post = Post::findOrFail($id);
         $post->titulo = $request->titulo;
         $post->subtitulo = $request->subtitulo;
         $post->user_id = $request->user_id;
         $post->image_url = $request->name;
-        
-        /* if ($request->file('headerImage')){ */
-            /* $imageName =  $request->file('headerImage');
-            $image_path = Storage::putFile('public/images', $request->headerImage);*/
-            //$post->image_url = $request->headerImage->getClientOriginalName();
-            if ($request->headerImage){
-                dd($request->headerImage);
-                $imageName =  $request->file('headerImage');
-                $image_path = Storage::put('public/images', $imageName);
-                $post->image_url = $imageName->getClientOriginalName();
-            }
-        //}
+
+        if ($request->hasFile('headerImage')){
+            $imageName =  public_path('/images');
+            $imageFinalURL = $imageName.'/'.$request->file('headerImage')->getClientOriginalName();
+            //$image_path = Storage::disk('local')->put($imageFinalURL, File::get($request->file('headerImage')));
+            $imageFile = $request->file('headerImage')->storeAs('images',$request->file('headerImage')->getClientOriginalName());
+            $post->image_url = $request->file('headerImage')->getClientOriginalName();
+        }
 
         if ($post->save()){
             $etiquetasDeleted = EtiquetasPost::where('post_id', $post->id)->delete();
