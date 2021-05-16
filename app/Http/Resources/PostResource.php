@@ -44,7 +44,7 @@ class PostResource extends JsonResource
     }
 
     public function getImageFile($imageURL){
-        if(Storage::exists(('/images'.'/'.$imageURL))){
+        if(Storage::disk('local')->exists(('/images'.'/'.$imageURL))){
             return Storage::get($imageURL);
         }
     }
