@@ -45,6 +45,7 @@ class PostResource extends JsonResource
 
     public function getImageFile($imageURL){
         $path = public_path('images'.'/'.$imageURL);
+        dd(Storage::exists($path));
         if(Storage::exists($path)){
             dd($path);
             return Storage::get($imageURL);
