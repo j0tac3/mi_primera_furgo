@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Imagene;
+use Illuminate\Contracts\Cache\Store;
+use Illuminate\Support\Facades\Storage;
 
 class ImagenController extends Controller
 {
@@ -74,5 +76,12 @@ class ImagenController extends Controller
     {
         $imagen = Imagene::findOrFail($id);        
         return $imagen->delete();
+    }
+
+    public function getImageFile($image_URL){
+        $urlTofindImage = 'images/'.$image_URL;
+        if (Storage::exists($urlTofindImage)){
+            return base64_encode(Storage::get($urlTofindImage));
+        }
     }
 }

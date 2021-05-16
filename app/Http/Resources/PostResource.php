@@ -6,6 +6,7 @@ use DateTime;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\ImagenController;
 
 class PostResource extends JsonResource
 {
@@ -28,7 +29,7 @@ class PostResource extends JsonResource
             'titulo' => $this->titulo,
             'subtitulo' => $this->subtitulo,
             'image_url' => $this->image_url,
-            'imageFile' => base64_encode(Storage::get('images/'.$this->image_url)),
+            'imageFile' => $this->getImageFile($this->image_url),
             'user_id' => $this->user_id,
             'user_name' => $this->user->name,
             'created_at' => $this->created_at,
