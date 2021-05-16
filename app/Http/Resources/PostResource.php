@@ -6,7 +6,7 @@ use DateTime;
 use Illuminate\Contracts\Cache\Store;
 use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Support\Facades\Storage;
-use App\Http\Controllers\ImagenController;
+//use App\Http\Controllers\ImagenController;
 
 class PostResource extends JsonResource
 {
