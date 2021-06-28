@@ -28,7 +28,8 @@ Route::apiResources([
     'post' => App\Http\Controllers\PostController::class,
     'user' => App\Http\Controllers\UserController::class,
     'etiquetasPost' => App\Http\Controllers\EtiquetasPostController::class,
-    'comentario' => App\Http\Controllers\ComentarioController::class
+    'comentario' => App\Http\Controllers\ComentarioController::class,
+    'aventura' => App\Http\Controllers\AventuraController::class,
 ]);
 /* Route::apiResources([
     'post' => App\Http\Controllers\PostController::class
