@@ -50,4 +50,10 @@ class User extends Authenticatable
     public function comentario(){
         return $this->hasMany('App\Models\Comentario');
     }
+
+    public function aventura(){
+        /* $post = Post::where('user_id', $this->id)->first();
+        return $post; */
+        return $this->hasMany('App\Models\Aventura');
+    }
 }
