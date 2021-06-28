@@ -41,6 +41,7 @@ class AventuraController extends Controller
         $aventura = new Aventura();
         $aventura->publicado = $request->publicado;
         $aventura->user_id = $request->user_id;
+        $aventura->views = 1;
         if ($aventura->save()){
             return new AventuraCollection($aventura);
         }
