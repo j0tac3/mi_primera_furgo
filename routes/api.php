@@ -30,6 +30,7 @@ Route::apiResources([
     'etiquetasPost' => App\Http\Controllers\EtiquetasPostController::class,
     'comentario' => App\Http\Controllers\ComentarioController::class,
     'aventura' => App\Http\Controllers\AventuraController::class,
+    'elementaventura' => App\Http\Controllers\AventuraController::class,
 ]);
 /* Route::apiResources([
     'post' => App\Http\Controllers\PostController::class
