@@ -40,6 +40,7 @@ class AventuraController extends Controller
     {
         $aventura = new Aventura();
         $aventura->publicado = $request->publicado;
+        $aventura->user_id = $request->user_id;
         if ($aventura->save()){
             return new AventuraCollection($aventura);
         }
@@ -79,6 +80,7 @@ class AventuraController extends Controller
     {
         $aventura = Aventura::findOrFail($id);
         $aventura->publicado = $request->publicado;
+        $aventura->user_id = $request->user_id;
         if ($aventura->save()){
             return new AventuraCollection($aventura);
         }
