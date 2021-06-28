@@ -43,7 +43,7 @@ class AventuraController extends Controller
         $aventura->user_id = $request->user_id;
         $aventura->views = 1;
         if ($aventura->save()){
-            return new AventuraCollection($aventura);
+            return new AventuraResource($aventura);
         }
     }
 
@@ -83,7 +83,7 @@ class AventuraController extends Controller
         $aventura->publicado = $request->publicado;
         $aventura->user_id = $request->user_id;
         if ($aventura->save()){
-            return new AventuraCollection($aventura);
+            return new AventuraResource($aventura);
         }
     }
 
