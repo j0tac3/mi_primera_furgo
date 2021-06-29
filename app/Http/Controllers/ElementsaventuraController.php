@@ -41,7 +41,7 @@ class ElementsaventuraController extends Controller
     {
         //dd($request->all());
         foreach ($request->all() as $element) {
-            dd($element);
+            //dd($element);
             $elementsAventura = new Elementsaventura();
             $elementsAventura->element = $element->element;
             $elementsAventura->value = $element->value;
