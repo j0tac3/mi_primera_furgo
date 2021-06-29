@@ -40,7 +40,7 @@ class ElementsaventuraController extends Controller
     public function store(Request $request)
     {
         $elements = $request->all();
-        dd($elements[0]);
+        dd($elements[0]->element);
         foreach ($request->all() as $element) {
             dd($element);
             $elementsAventura = new Elementsaventura();
