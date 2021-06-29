@@ -19,7 +19,7 @@ class ElementsaventuraResource extends JsonResource
             'id' => $this->id,
             'aventura_id' => $this->aventura_id,
             'element' => $this->element,
-            'value' => $this->etiqueta->value,
+            'value' => $this->value,
         ];
     }
 }
