@@ -40,14 +40,13 @@ class ElementsaventuraController extends Controller
      */
     public function store(Request $request)
     {
-        $elements = $request->all();
-        dd($request->all()[0]['element']);
+        //dd($request->all()[0]['element']);
         foreach ($request->all() as $element) {
-            dd($element);
+            //dd($element);
             $elementsAventura = new Elementsaventura();
-            $elementsAventura->element = $element->element;
-            $elementsAventura->value = $element->value;
-            $elementsAventura->aventura_id = $element->aventura_id;
+            $elementsAventura->element = $element['element'];
+            $elementsAventura->value = $element['value'];
+            $elementsAventura->aventura_id = $element['aventura_id'];
             $elementsAventura->save();
         }
     }
