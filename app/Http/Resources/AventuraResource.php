@@ -20,8 +20,8 @@ class AventuraResource extends JsonResource
         //return parent::toArray($request);
         return [
             'id' => $this->id,
-            'titulo' => DB::table('elementsaventura')->select('value')->where([['aventura_id', '=', $this->id], ['element','h1']])->first(),
-            'headerImage' => DB::table('elementsaventura')->select('value')->where('aventura_id', '=', $this->id)('value')->where('element','img')->first(),
+            'titulo' => DB::table('elementsaventuras')->select('value')->where([['aventura_id', '=', $this->id], ['element','h1']])->first(),
+            'headerImage' => DB::table('elementsaventuras')->select('value')->where('aventura_id', '=', $this->id)('value')->where('element','img')->first(),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'publicado' => $this->publicado,
