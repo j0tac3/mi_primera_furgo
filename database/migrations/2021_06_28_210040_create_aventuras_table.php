@@ -15,7 +15,7 @@ class CreateAventurasTable extends Migration
     {
         Schema::create('aventuras', function (Blueprint $table) {
             $table->id();
-            $table->boolean('publicado')->default(0)->change();;
+            $table->boolean('publicado')->default(0)->change();
             $table->integer('views');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')
