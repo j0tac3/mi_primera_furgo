@@ -20,7 +20,7 @@ class AventuraResource extends JsonResource
         //return parent::toArray($request);
         return [
             'id' => $this->id,
-            'titulo' => ElementsaventuraResource::collection($this->elementAventura)->firstWhere('element', 'h1'),
+            'titulo' => (ElementsaventuraResource::collection($this->elementAventura)->firstWhere('element', 'h1'))[0],
             'headerImage' => ElementsaventuraResource::collection($this->elementAventura)->pluck('value')->firstWhere('element', 'img'),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
