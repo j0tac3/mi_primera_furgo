@@ -3,6 +3,7 @@
 namespace App\Http\Resources;
 
 use App\Models\Elementsaventura;
+use App\Models\Aventura;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class AventuraResource extends JsonResource
@@ -18,6 +19,8 @@ class AventuraResource extends JsonResource
         //return parent::toArray($request);
         return [
             'id' => $this->id,
+            'titulo' => $this->elementAventura->select('value')->where('element','h1')->first(),
+            'headerImage' => $this->elementAventura->select('value')->where('element','img')->first(),
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'publicado' => $this->publicado,
