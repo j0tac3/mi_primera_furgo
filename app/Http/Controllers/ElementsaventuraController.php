@@ -7,6 +7,7 @@ use App\Http\Resources\ElementsaventuraResource;
 use Illuminate\Http\Request;
 use App\Models\Elementsaventura;
 use PHPUnit\Util\Json;
+use Illuminate\Support\Collection;
 
 class ElementsaventuraController extends Controller
 {
@@ -40,7 +41,7 @@ class ElementsaventuraController extends Controller
     public function store(Request $request)
     {
         $elements = $request->all();
-        dd($request->toJson());
+        dd(json_encode($request));
         foreach ($request->all() as $element) {
             dd($element);
             $elementsAventura = new Elementsaventura();
