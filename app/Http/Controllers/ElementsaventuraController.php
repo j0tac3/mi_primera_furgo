@@ -41,7 +41,7 @@ class ElementsaventuraController extends Controller
     {
         //dd(json_decode($request));
         foreach ($request as $element) {
-            dd(json_decode($element));
+            dd($element);
             $elementsAventura = new Elementsaventura();
             $elementsAventura->element = $element->element;
             $elementsAventura->value = $element->value;
