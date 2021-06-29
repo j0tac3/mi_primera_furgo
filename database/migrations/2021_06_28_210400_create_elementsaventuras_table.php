@@ -16,7 +16,7 @@ class CreateElementsaventurasTable extends Migration
         Schema::create('elementsaventuras', function (Blueprint $table) {
             $table->id();
             $table->string('element');
-            $table->string('value');
+            $table->text('value');
 
             $table->unsignedBigInteger('aventura_id');
             $table->foreign('aventura_id')
