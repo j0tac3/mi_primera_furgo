@@ -39,8 +39,8 @@ class ElementsaventuraController extends Controller
      */
     public function store(Request $request)
     {
-        $elements = $request->all();
-        dd(($elements[0])[0]);
+        $elements = json_decode($request);
+        dd($elements);
         foreach ($request->all() as $element) {
             dd($element);
             $elementsAventura = new Elementsaventura();
