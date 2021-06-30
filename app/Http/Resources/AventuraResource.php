@@ -31,7 +31,8 @@ class AventuraResource extends JsonResource
             'updated_at' => $this->updated_at,
             'publicado' => $this->publicado,
             'views' => $this->views,
-            'elementos' => ElementsaventuraResource::collection($this->elementAventura)
+            'elementos' => ElementsaventuraResource::collection($this->elementAventura),
+            'user' => $this->user,
         ];
     }
 }
