@@ -27,7 +27,7 @@ class AventuraResource extends JsonResource
             'titulo' => $titulo !== null ? $titulo->value : null,
             'headerImage' => $headerImage !== null ? $headerImage->value : null,
             'resumen' => $resumen !== null ? $resumen->value : null,
-            'created_at' => $this->created_at,
+            'fecha_creacion' => $this->created_at,
             'updated_at' => $this->updated_at,
             'publicado' => $this->publicado,
             'views' => $this->views,
