@@ -20,6 +20,11 @@ class AventuraController extends Controller
         return AventuraResource::collection($aventura);
     }
 
+    public function aventurasPublicadas()
+    {
+        $aventura = Aventura::latest()->where('publicado', '=', true)->paginate(10);
+        return AventuraResource::collection($aventura);
+    }
     /**
      * Show the form for creating a new resource.
      *

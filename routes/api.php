@@ -22,6 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('mostRecentPosts', [App\Http\Controllers\PostController::class, 'getMostRecentPosts']);
+Route::get('aventurasPublicadas', [App\Http\Controllers\AventuraController::class, 'aventurasPublicadas']);
 
 Route::apiResources([
     'etiqueta' => App\Http\Controllers\EtiquetaController::class,
