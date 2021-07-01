@@ -92,6 +92,15 @@ class AventuraController extends Controller
         }
     }
 
+    public function publicarAventura(Request $request, $id)
+    {
+        $aventura = Aventura::findOrFail($id);
+        $aventura->publicado = $request->publicado;
+        if ($aventura->save()){
+            return new AventuraResource($aventura);
+        }
+    }
+
     /**
      * Remove the specified resource from storage.
      *
