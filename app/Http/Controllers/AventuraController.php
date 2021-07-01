@@ -22,7 +22,7 @@ class AventuraController extends Controller
 
     public function aventurasPublicadas()
     {
-        $aventura = Aventura::latest()->where('publicado', '=', true)->paginate(10);
+        $aventura = Aventura::where('publicado', '=', true)->latest()->paginate(10);
         return AventuraResource::collection($aventura);
     }
     /**
